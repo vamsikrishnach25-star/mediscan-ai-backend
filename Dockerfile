@@ -22,7 +22,8 @@ RUN apt-get update -qq && \
     libvips \
     pkg-config \
     imagemagick \
-    tesseract-ocr && \
+    tesseract-ocr \
+    libyaml-dev && \
     rm -rf /var/lib/apt/lists/*
 
 COPY Gemfile Gemfile.lock ./

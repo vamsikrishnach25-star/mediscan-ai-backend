@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: mediscan_backend_development
+  username: postgres
+  password: myproject   
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: mediscan_backend_test
+  username: postgres
+  password: myproject 
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: mediscan_backend_production
+  username: mediscan_backend
+  password: <%= ENV["MEDISCAN_BACKEND_DATABASE_PASSWORD"] %>

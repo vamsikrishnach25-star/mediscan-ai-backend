@@ -1,8 +1,8 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e
 
-# If running the rails server then create or migrate existing database
-if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
-  ./bin/rails db:prepare
-fi
+# Remove old server pid
+rm -f /rails/tmp/pids/server.pid
 
-exec "${@}"
+# Then run main command
+exec "$@"
